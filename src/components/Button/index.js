@@ -1,9 +1,21 @@
 import { ButtonContainer, ButtonLink } from "./styles";
 
-const Button = ({ type, title, to, onClick, children }) => {
+const Button = ({
+  type,
+  title,
+  to,
+  onClick,
+  children,
+  variant = "default",
+}) => {
   if (type === "button") {
     return (
-      <ButtonContainer type="button" title={title} onClick={onClick}>
+      <ButtonContainer
+        type="button"
+        title={title}
+        onClick={onClick}
+        variant={variant}
+      >
         {children}
       </ButtonContainer>
     );

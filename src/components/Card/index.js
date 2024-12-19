@@ -1,7 +1,7 @@
 import { CardContainer, Description, Titulo, Nota, Infos } from "./styles";
 import Tag from "../Tag";
 import estrela from "../../assets/images/estrela.png";
-import { ButtonContainer } from "../Button/styles";
+import { ButtonLink } from "../Button/styles";
 
 const Card = ({
   image,
@@ -29,7 +29,9 @@ const Card = ({
         </Nota>
       </Titulo>
       <p>{description}</p>
-      <ButtonContainer>Saiba mais</ButtonContainer>
+      <ButtonLink to="/perfil" variant={variant}>
+        Saiba mais
+      </ButtonLink>
     </Description>
   </CardContainer>
 );
