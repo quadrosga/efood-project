@@ -18,6 +18,18 @@ export const CardContainer = styled.div`
     `
       background-color: ${colors.hotPink};
       color: ${colors.lightPink};
+      padding: 8px;
+
+      h2 {
+        font-size: 16px
+      }
+      
+      p {
+        font-size: 14px;
+        line-height: 22px;
+        text-align: left;
+
+      }
 
       img:first-child {
         width: 304px;
@@ -33,6 +45,7 @@ export const Description = styled.div`
 
   p {
     margin: 16px 0;
+    line-height: 22px;
   }
 `;
 
