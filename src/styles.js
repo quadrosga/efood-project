@@ -4,6 +4,7 @@ export const colors = {
   lightPink: "#FFEBD9",
   hotPink: "#E66767",
   white: "#FFFFFF",
+  offWhite: "#FFF8F2",
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -11,11 +12,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
   }
 
   body {
     font-family: 'Roboto', sans-serif;
-    background-color: ${colors.white};
+    background-color: ${colors.offWhite};
     color: ${colors.hotPink};
     text-decoration: none;
   }
