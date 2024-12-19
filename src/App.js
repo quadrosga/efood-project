@@ -9,6 +9,7 @@ import HeaderPerfil from "./components/HeaderPerfil";
 const DynamicHeader = () => {
   const location = useLocation();
   console.log("DynamicHeader rendered");
+
   return location.pathname === "/perfil" ? <HeaderPerfil /> : <Header />;
 };
 

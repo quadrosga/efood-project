@@ -14,8 +14,8 @@ export const CardContainer = styled.div`
   }
 
   ${(props) =>
-    props.variant === "products"
-      ? `
+    props.variant === "products" &&
+    `
       background-color: ${colors.hotPink};
       color: ${colors.lightPink};
 
@@ -24,8 +24,7 @@ export const CardContainer = styled.div`
         height: 167px;
         object-fit: cover;
       }
-    `
-      : ""}
+    `}
 `;
 
 export const Description = styled.div`

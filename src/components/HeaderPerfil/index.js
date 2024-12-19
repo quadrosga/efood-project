@@ -3,8 +3,7 @@ import { HeaderBar, Title, LinkCart } from "./styles";
 import headerBarImg from "../../assets/images/banner.png";
 import { Link } from "react-router-dom";
 
-const HeaderPerfil = () => {
-  console.log("HeaderPerfil rendered");
+const HeaderPerfil = () => (
   <HeaderBar style={{ backgroundImage: `url(${headerBarImg})` }}>
     <Title>
       <p>Restaurantes</p>
@@ -15,7 +14,7 @@ const HeaderPerfil = () => {
       </Link>
     </div>
     <LinkCart href="#">0 - produtos no carrinho</LinkCart>
-  </HeaderBar>;
-};
+  </HeaderBar>
+);
 
 export default HeaderPerfil;
