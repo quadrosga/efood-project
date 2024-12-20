@@ -5,10 +5,16 @@ import close from "../../assets/images/close.png";
 const PopUp = ({ product, onClose }) => {
   console.log("PopUp is rendered");
 
+  const handleClosePopUp = () => {
+    if (onClose) {
+      onClose();
+    }
+  };
+
   return (
     <PopUpContainer>
       <PopUpContent>
-        <CloseButton onClick={onClose}>
+        <CloseButton onClick={handleClosePopUp}>
           <img src={close} alt="close" />
         </CloseButton>
         <Card

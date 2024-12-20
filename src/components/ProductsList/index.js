@@ -33,10 +33,7 @@ const ProductsList = ({ products }) => {
 
       {selectedProduct && (
         <div className="popup-overlay">
-          <div className="popup-content">
-            <PopUp product={selectedProduct} />
-            <button onClick={handleClosePopUp}>Close</button>
-          </div>
+          <PopUp product={selectedProduct} onClose={handleClosePopUp} />
         </div>
       )}
     </div>
