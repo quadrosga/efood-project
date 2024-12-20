@@ -21,7 +21,7 @@ export const CardContainer = styled.div`
       padding: 8px;
 
       h2 {
-        font-size: 16px
+        font-size: 16px;
       }
       
       p {
@@ -37,6 +37,31 @@ export const CardContainer = styled.div`
         object-fit: cover;
       }
     `}
+
+  ${(props) =>
+    props.variant === "pop-up" &&
+    `
+        background-color: ${colors.hotPink};
+        color: ${colors.lightPink};
+        padding: 32px;
+  
+        h2 {
+          font-size: 18px;
+        }
+        
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          text-align: left;
+  
+        }
+  
+        img:first-child {
+          width: 280px;
+          height: 280px;
+          object-fit: cover;
+        }
+      `}
 `;
 
 export const Description = styled.div`

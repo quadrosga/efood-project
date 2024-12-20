@@ -10,6 +10,9 @@ const Card = ({
   variant = "default",
   infos,
   score,
+  buttonText = "Saiba mais",
+  buttonPath = "/perfil",
+  onButtonClick,
 }) => (
   <CardContainer variant={variant}>
     <img src={image} alt={nome} />
@@ -29,8 +32,8 @@ const Card = ({
         </Nota>
       </Titulo>
       <p>{description}</p>
-      <ButtonLink to="/perfil" variant={variant}>
-        Saiba mais
+      <ButtonLink to={buttonPath} variant={variant} onClick={onButtonClick}>
+        {buttonText}
       </ButtonLink>
     </Description>
   </CardContainer>

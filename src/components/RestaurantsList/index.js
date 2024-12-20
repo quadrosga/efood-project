@@ -12,6 +12,8 @@ const Restaurants = ({ restaurants }) => (
             nome={restaurant.name}
             score={restaurant.score}
             description={restaurant.description}
+            buttonText="Saiba mais"
+            buttonPath="/perfil"
           />
         </li>
       ))}
