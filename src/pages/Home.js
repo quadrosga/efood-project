@@ -6,7 +6,7 @@ import shrimp from "../assets/images/camarao.png";
 import pizza from "../assets/images/pizza.png";
 import burger from "../assets/images/burger.jpg";
 
-const restaurantes = [
+export const restaurantes = [
   new Restaurant(
     1,
     ["Destaque da semana", "Japonesa"],
