@@ -19,7 +19,7 @@ const Card = ({
     <Infos>
       {infos && infos.map((info, index) => <Tag key={index}>{info}</Tag>)}
     </Infos>
-    <Description>
+    <Description variant={variant}>
       <Titulo>
         <h2>{nome}</h2>
         <Nota>

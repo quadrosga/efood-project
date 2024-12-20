@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
   position: relative;
 
   img:first-child {
-    width: 472px;
+    width: 100%;
     height: 217px;
     object-fit: cover;
   }
@@ -18,8 +18,45 @@ export const CardContainer = styled.div`
     `
       background-color: ${colors.hotPink};
       color: ${colors.lightPink};
-      padding: 8px;
+      line-height: 22px;
+        text-align: left;
 
+      img:first-child {
+        width: 100%;
+        height: 167px;
+        object-fit: cover;
+        padding: 8px;
+      }
+    `}
+
+  ${(props) =>
+    props.variant === "pop-up" &&
+    `
+        background-color: ${colors.hotPink};
+        color: ${colors.lightPink};
+        padding: 32px;
+        display: flex;
+  
+        img:first-child {
+          width: 280px;
+          height: 280px;
+          object-fit: cover ;
+        }
+      `}
+`;
+
+export const Description = styled.div`
+  font-size: 14px;
+  padding: 8px;
+
+  p {
+    margin: 16px 0;
+    line-height: 22px;
+  }
+
+  ${(props) =>
+    props.variant === "products" &&
+    `
       h2 {
         font-size: 16px;
       }
@@ -30,21 +67,13 @@ export const CardContainer = styled.div`
         text-align: left;
 
       }
-
-      img:first-child {
-        width: 304px;
-        height: 167px;
-        object-fit: cover;
-      }
     `}
 
   ${(props) =>
     props.variant === "pop-up" &&
     `
-        background-color: ${colors.hotPink};
-        color: ${colors.lightPink};
-        padding: 32px;
-  
+    padding: 0;
+    margin-left: 24px;
         h2 {
           font-size: 18px;
         }
@@ -52,26 +81,9 @@ export const CardContainer = styled.div`
         p {
           font-size: 14px;
           line-height: 22px;
-          text-align: left;
-  
-        }
-  
-        img:first-child {
-          width: 280px;
-          height: 280px;
-          object-fit: cover;
-        }
+          text-align: left;        
+          }
       `}
-`;
-
-export const Description = styled.div`
-  padding: 8px;
-  font-size: 14px;
-
-  p {
-    margin: 16px 0;
-    line-height: 22px;
-  }
 `;
 
 export const Titulo = styled.div`

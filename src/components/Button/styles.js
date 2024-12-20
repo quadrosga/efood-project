@@ -15,16 +15,30 @@ export const ButtonLink = styled(Link)`
   background-color: ${colors.hotPink};
   color: ${colors.lightPink};
   font-weight: bold;
-  display: block;
+  display: flex;
   text-decoration: none;
+  justify-content: center;
+
+  ${(props) =>
+    props.variant === "default" &&
+    `
+    width: 21%;
+    `}
 
   ${(props) =>
     props.variant === "products" &&
     `
       background-color: ${colors.lightPink};
       color: ${colors.hotPink};
-      display: flex;
       padding: 4px auto;
-      justify-content: center;
     `}
+
+  ${(props) =>
+    props.variant === "pop-up" &&
+    `
+        background-color: ${colors.lightPink};
+        color: ${colors.hotPink};
+        padding: 4px auto;
+        width: 33%;
+      `}
 `;
