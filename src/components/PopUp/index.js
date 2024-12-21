@@ -16,7 +16,7 @@ const PopUp = ({ product, onClose, onAddToCart }) => {
           image={product.image}
           nome={product.name}
           description={product.description}
-          buttonText="Adicionar ao carrinho"
+          buttonText={`Adicionar ao carrinho - R$ ${product.price.toFixed(2)}`}
           onButtonClick={handleAddToCart}
           onClose={onClose}
         />

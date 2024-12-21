@@ -39,7 +39,7 @@ export const ButtonLink = styled(Link)`
         background-color: ${colors.lightPink};
         color: ${colors.hotPink};
         padding: 4px auto;
-        width: 33%;
+        width: 218px;
       `}
 
       ${(props) =>
