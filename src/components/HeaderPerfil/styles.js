@@ -30,6 +30,7 @@ export const Banner = styled.div`
   color: ${colors.white};
   font-size: 32px;
   position: relative;
+  margin-bottom: 24px;
 `;
 
 export const BannerP = styled.p`

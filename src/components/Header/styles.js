@@ -19,6 +19,7 @@ export const Image = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
+  margin-bottom: 32px;
 `;
 
 export const TituloContainer = styled.div`
