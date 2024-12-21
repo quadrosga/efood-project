@@ -41,7 +41,7 @@ const Card = ({
           )}
         </Nota>
       </Titulo>
-      <p>{description}</p>
+      <p>{description ? description : price ? price : ""}</p>
       <ButtonLink to={buttonPath} variant={variant} onClick={onButtonClick}>
         {buttonIcon ? (
           <span className="material-symbols-outlined">delete</span>
