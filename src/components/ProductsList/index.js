@@ -2,9 +2,12 @@ import { useState } from "react";
 import Card from "../Card";
 import { List } from "./styles";
 import PopUp from "../PopUp";
+import Cart from "../Cart";
 
 const ProductsList = ({ products }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
   const handleOpenPopUp = (product) => {
     setSelectedProduct(product);
@@ -12,6 +15,16 @@ const ProductsList = ({ products }) => {
 
   const handleClosePopUp = () => {
     setSelectedProduct(null);
+  };
+
+  const handleAddToCart = (product) => {
+    setCartItems((prevItems) => [...prevItems, product]);
+    setSelectedProduct(null);
+    setIsCartVisible(true);
+  };
+
+  const handleCloseCart = () => {
+    setIsCartVisible(false);
   };
 
   return (
@@ -33,8 +46,18 @@ const ProductsList = ({ products }) => {
 
       {selectedProduct && (
         <div className="popup-overlay">
-          <PopUp product={selectedProduct} onClose={handleClosePopUp} />
+          <PopUp
+            product={selectedProduct}
+            onClose={handleClosePopUp}
+            onAddToCart={handleAddToCart}
+          />
         </div>
+      )}
+
+      {isCartVisible && (
+        <aside className="cart-aside">
+          <Cart products={cartItems} onClose={handleCloseCart} />
+        </aside>
       )}
     </div>
   );
