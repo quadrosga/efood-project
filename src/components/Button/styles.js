@@ -41,4 +41,26 @@ export const ButtonLink = styled(Link)`
         padding: 4px auto;
         width: 33%;
       `}
+
+      ${(props) =>
+    props.variant === "cart-item" &&
+    `
+        background-color: ${colors.lightPink};
+        color: ${colors.hotPink};
+        font-weight: 100;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        bottom: 16px;
+        right: 8px;
+        `}
+
+        ${(props) =>
+    props.variant === "cart" &&
+    `
+        background-color: ${colors.lightPink};
+        color: ${colors.hotPink};
+        font-size: 14px;
+        font-weight: bold;
+        `}
 `;
