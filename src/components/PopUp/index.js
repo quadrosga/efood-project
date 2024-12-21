@@ -1,28 +1,24 @@
 import Card from "../Card";
-import { CloseButton, PopUpContainer, PopUpContent } from "./styles";
-import close from "../../assets/images/close.png";
+import { PopUpContainer, PopUpContent } from "./styles";
 
-const PopUp = ({ product, onClose }) => {
-  console.log("PopUp is rendered");
-
-  const handleClosePopUp = () => {
-    if (onClose) {
-      onClose();
+const PopUp = ({ product, onClose, onAddToCart }) => {
+  const handleAddToCart = () => {
+    if (onAddToCart) {
+      onAddToCart(product);
     }
   };
 
   return (
     <PopUpContainer>
       <PopUpContent>
-        <CloseButton onClick={handleClosePopUp}>
-          <img src={close} alt="close" />
-        </CloseButton>
         <Card
           variant="pop-up"
           image={product.image}
           nome={product.name}
           description={product.description}
           buttonText="Adicionar ao carrinho"
+          onButtonClick={handleAddToCart}
+          onClose={onClose}
         />
       </PopUpContent>
     </PopUpContainer>

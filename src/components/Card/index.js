@@ -2,6 +2,7 @@ import { CardContainer, Description, Titulo, Nota, Infos } from "./styles";
 import Tag from "../Tag";
 import estrela from "../../assets/images/estrela.png";
 import { ButtonLink } from "../Button/styles";
+import { CloseButton } from "../PopUp/styles";
 
 const Card = ({
   image,
@@ -10,11 +11,14 @@ const Card = ({
   variant = "default",
   infos,
   score,
-  buttonText = "Saiba mais",
+  buttonText,
   buttonPath = "/perfil",
   onButtonClick,
+  buttonIcon,
+  price,
+  onClose,
 }) => (
-  <CardContainer variant={variant}>
+  <CardContainer className="container" variant={variant}>
     <img src={image} alt={nome} />
     <Infos>
       {infos && infos.map((info, index) => <Tag key={index}>{info}</Tag>)}
@@ -23,17 +27,27 @@ const Card = ({
       <Titulo>
         <h2>{nome}</h2>
         <Nota>
-          {score !== undefined && (
+          {score ? (
             <>
               <p>{score}</p>
               <img src={estrela} alt="estrela" />
             </>
+          ) : onClose ? (
+            <CloseButton onClick={onClose}>
+              <span className="material-symbols-outlined">close</span>
+            </CloseButton>
+          ) : (
+            ""
           )}
         </Nota>
       </Titulo>
       <p>{description}</p>
       <ButtonLink to={buttonPath} variant={variant} onClick={onButtonClick}>
-        {buttonText}
+        {buttonIcon ? (
+          <span className="material-symbols-outlined">delete</span>
+        ) : (
+          buttonText
+        )}
       </ButtonLink>
     </Description>
   </CardContainer>

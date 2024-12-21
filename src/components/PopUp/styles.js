@@ -13,9 +13,12 @@ export const PopUpContainer = styled.div`
 `;
 
 export const PopUpContent = styled.div`
-  position: relative;
+  position: absolute;
 `;
 
+export const CloseContainer = styled.div`
+  position: relative;
+`;
 export const CloseButton = styled.div`
   position: absolute;
   top: 8px;

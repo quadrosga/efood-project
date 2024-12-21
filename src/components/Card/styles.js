@@ -19,7 +19,8 @@ export const CardContainer = styled.div`
       background-color: ${colors.hotPink};
       color: ${colors.lightPink};
       line-height: 22px;
-        text-align: left;
+      text-align: left;
+      margin-top: 32px;
 
       img:first-child {
         width: 100%;
@@ -40,6 +41,22 @@ export const CardContainer = styled.div`
         img:first-child {
           width: 280px;
           height: 280px;
+          object-fit: cover;
+        }
+      `}
+
+    ${(props) =>
+    props.variant === "cart-item" &&
+    `
+      background-color: ${colors.lightPink};
+      padding: 8px;
+      margin-top: 8px;
+      display: flex;
+      width: 344px;
+
+      img:first-child {
+          width: 80px;
+          height: 80px;
           object-fit: cover ;
         }
       `}
@@ -84,6 +101,21 @@ export const Description = styled.div`
           text-align: left;        
           }
       `}
+
+      ${(props) =>
+    props.variant === "cart-item" &&
+    `
+          h2 {
+            font-size: 18px;
+          }
+          
+          p {
+            font-size: 14px;
+            line-height: 22px;
+            text-align: left;
+    
+          }
+        `}
 `;
 
 export const Titulo = styled.div`
@@ -106,6 +138,15 @@ export const Nota = styled.div`
     height: 20px;
     margin-left: 8px;
   }
+
+  ${(props) =>
+    props.variant === "pop-up" &&
+    `
+          img {
+            height: 16px;
+            width: 16px;
+  }
+        `}
 `;
 
 export const Infos = styled.div`
