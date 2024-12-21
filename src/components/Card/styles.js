@@ -21,6 +21,7 @@ export const CardContainer = styled.div`
       line-height: 22px;
       text-align: left;
       margin-top: 32px;
+      max-width: 320px;
 
       img:first-child {
         width: 100%;
@@ -74,15 +75,20 @@ export const Description = styled.div`
   ${(props) =>
     props.variant === "products" &&
     `
-      h2 {
-        font-size: 16px;
+    
+    h2 {
+      font-size: 16px;
       }
       
       p {
         font-size: 14px;
         line-height: 22px;
         text-align: left;
-
+        display: -webkit-box;        
+        -webkit-line-clamp: 4;  
+        -webkit-box-orient: vertical; 
+        overflow: hidden;
+        
       }
     `}
 
