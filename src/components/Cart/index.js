@@ -3,7 +3,7 @@ import Card from "../Card";
 import { CartContainer, CartContent, Price, CloseCart } from "./styles";
 import close from "../../assets/images/close.png";
 
-const Cart = ({ products, onClose }) => {
+const Cart = ({ products, onClose, onRemove }) => {
   const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
 
   return (
@@ -21,6 +21,7 @@ const Cart = ({ products, onClose }) => {
                 nome={product.name}
                 price={product.price}
                 buttonIcon
+                onButtonClick={() => onRemove(product)}
               />
             </li>
           ))}

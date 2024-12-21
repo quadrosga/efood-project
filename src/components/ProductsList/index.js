@@ -23,6 +23,12 @@ const ProductsList = ({ products }) => {
     setIsCartVisible(true);
   };
 
+  const handleRemoveFromCart = (productToRemove) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((product) => product !== productToRemove)
+    );
+  };
+
   const handleCloseCart = () => {
     setIsCartVisible(false);
   };
@@ -56,7 +62,11 @@ const ProductsList = ({ products }) => {
 
       {isCartVisible && (
         <aside className="cart-aside">
-          <Cart products={cartItems} onClose={handleCloseCart} />
+          <Cart
+            products={cartItems}
+            onClose={handleCloseCart}
+            onRemove={handleRemoveFromCart}
+          />
         </aside>
       )}
     </div>

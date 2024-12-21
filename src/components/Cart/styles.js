@@ -17,6 +17,7 @@ export const CartContent = styled.div`
   height: 100%;
   padding: 12px 8px;
   background-color: ${colors.hotPink};
+  width: 360px;
 `;
 
 export const Price = styled.div`
