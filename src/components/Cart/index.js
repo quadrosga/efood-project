@@ -3,7 +3,7 @@ import Card from "../Card";
 import { CartContainer, CartContent, Price, CloseCart } from "./styles";
 import close from "../../assets/images/close.png";
 
-const Cart = ({ products, onClose, onRemove }) => {
+const Cart = ({ products, onClose, onRemove, onOpenDelivery }) => {
   const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
 
   return (
@@ -30,7 +30,9 @@ const Cart = ({ products, onClose, onRemove }) => {
           <p>Valor total</p>
           <span>R$ {totalPrice.toFixed(2)}</span>
         </Price>
-        <ButtonLink variant="cart">Continuar com a entrega</ButtonLink>
+        <ButtonLink onClick={onOpenDelivery} variant="cart">
+          Continuar com a entrega
+        </ButtonLink>
       </CartContent>
     </CartContainer>
   );

@@ -3,11 +3,17 @@ import Card from "../Card";
 import { List } from "./styles";
 import PopUp from "../PopUp";
 import Cart from "../Cart";
+import DeliveryForm from "../DeliveryForm";
+import PayForm from "../PayForm";
+import OrderId from "../OderId";
 
 const ProductsList = ({ products }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [isDeliveryFormVisible, setIsDeliveryFormVisible] = useState(false);
+  const [isPayFormVisible, setIsPayFormVisible] = useState();
+  const [isOrderIdVisible, setIsOrderIdVisible] = useState();
 
   const handleOpenPopUp = (product) => {
     setSelectedProduct(product);
@@ -31,6 +37,36 @@ const ProductsList = ({ products }) => {
 
   const handleCloseCart = () => {
     setIsCartVisible(false);
+  };
+
+  const handleOpenDeliveryForm = () => {
+    setIsCartVisible(false);
+    setIsDeliveryFormVisible(true);
+  };
+
+  const handleOpenPayForm = () => {
+    console.log("Opening PayForm...");
+    setIsDeliveryFormVisible(false);
+    setIsPayFormVisible(true);
+  };
+
+  const handleOpenOrderId = () => {
+    setIsPayFormVisible(false);
+    setIsOrderIdVisible(true);
+  };
+
+  const handleBackToCart = () => {
+    setIsDeliveryFormVisible(false);
+    setIsCartVisible(true);
+  };
+
+  const handleGoBackToDelivery = () => {
+    setIsPayFormVisible(false);
+    setIsDeliveryFormVisible(true);
+  };
+
+  const handleCloseOrderId = () => {
+    setIsOrderIdVisible(false);
   };
 
   return (
@@ -66,6 +102,35 @@ const ProductsList = ({ products }) => {
             products={cartItems}
             onClose={handleCloseCart}
             onRemove={handleRemoveFromCart}
+            onOpenDelivery={handleOpenDeliveryForm}
+            onOpenPay={handleOpenPayForm}
+          />
+        </aside>
+      )}
+
+      {isDeliveryFormVisible && (
+        <aside className="delivery-form">
+          <DeliveryForm
+            onOpenPay={handleOpenPayForm}
+            onBackToCart={handleBackToCart}
+          />
+        </aside>
+      )}
+
+      {isPayFormVisible && (
+        <aside className="pay-form">
+          <PayForm
+            onOpenOrderId={handleOpenOrderId}
+            onBackToDelivery={handleGoBackToDelivery}
+          />
+        </aside>
+      )}
+
+      {isOrderIdVisible && (
+        <aside className="order-id">
+          <OrderId
+            onOpenOrderId={handleOpenOrderId}
+            onCloseOrderId={handleCloseOrderId}
           />
         </aside>
       )}

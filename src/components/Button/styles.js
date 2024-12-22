@@ -63,4 +63,14 @@ export const ButtonLink = styled(Link)`
         font-size: 14px;
         font-weight: bold;
         `}
+
+        ${(props) =>
+    props.variant === "submit" &&
+    `
+              background-color: ${colors.lightPink};
+              color: ${colors.hotPink};
+              font-size: 14px;
+              font-weight: bold;
+              margin-bottom: 8px;
+              `}
 `;
