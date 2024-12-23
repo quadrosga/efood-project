@@ -42,6 +42,8 @@ export const FormItems = styled.div`
     margin: 8px 0;
     display: inline-block;
     border: none;
+    color: ${colors.grey};
+    font-weight: bold;
   }
 
   input[id="cnum"] {

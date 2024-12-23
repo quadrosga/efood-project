@@ -5,6 +5,7 @@ export const colors = {
   hotPink: "#E66767",
   white: "#FFFFFF",
   offWhite: "#FFF8F2",
+  grey: " #4B4B4B",
 };
 
 const GlobalStyle = createGlobalStyle`

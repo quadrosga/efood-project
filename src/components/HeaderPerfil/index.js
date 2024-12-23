@@ -10,10 +10,10 @@ import {
 import logo from "../../assets/images/logo.png";
 import headerBarImg from "../../assets/images/banner.png";
 import headerBanner from "../../assets/images/imagem_fundo.png";
-import { restaurantes } from "../../pages/Home";
+import { restaurants } from "../../pages/Home";
 
 const HeaderPerfil = () => {
-  const restaurant = restaurantes[1];
+  const restaurant = restaurants[1];
 
   return (
     <>

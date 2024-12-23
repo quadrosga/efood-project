@@ -6,7 +6,7 @@ import shrimp from "../assets/images/camarao.png";
 import pizza from "../assets/images/pizza.png";
 import burger from "../assets/images/burger.jpg";
 
-export const restaurantes = [
+export const restaurants = [
   new Restaurant(
     1,
     ["Destaque da semana", "Japonesa"],
@@ -57,6 +57,6 @@ export const restaurantes = [
   ),
 ];
 
-const Home = () => <Restaurants restaurants={restaurantes} />;
+const Home = () => <Restaurants restaurants={restaurants} />;
 
 export default Home;

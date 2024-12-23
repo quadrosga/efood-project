@@ -11,7 +11,7 @@ import {
   ErrorMessage,
 } from "../DeliveryForm/styles";
 
-const PayForm = ({ onOpenOrderId, onBackToDelivery }) => {
+const PayForm = ({ onOpenOrderId, onBackToDelivery, totalPrice }) => {
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
@@ -51,7 +51,9 @@ const PayForm = ({ onOpenOrderId, onBackToDelivery }) => {
   return (
     <FormContainer>
       <FormContent>
-        <FormTitle>Pagamento - Valor a pagar R$</FormTitle>
+        <FormTitle>
+          Pagamento - Valor a pagar R$ {totalPrice.toFixed(2)}
+        </FormTitle>
         <form>
           <FormItems>
             <label htmlFor="cname">Nome no cartão</label>

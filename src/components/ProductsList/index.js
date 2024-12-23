@@ -14,6 +14,7 @@ const ProductsList = ({ products }) => {
   const [isDeliveryFormVisible, setIsDeliveryFormVisible] = useState(false);
   const [isPayFormVisible, setIsPayFormVisible] = useState();
   const [isOrderIdVisible, setIsOrderIdVisible] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleOpenPopUp = (product) => {
     setSelectedProduct(product);
@@ -39,9 +40,10 @@ const ProductsList = ({ products }) => {
     setIsCartVisible(false);
   };
 
-  const handleOpenDeliveryForm = () => {
+  const handleOpenDeliveryForm = (price) => {
     setIsCartVisible(false);
     setIsDeliveryFormVisible(true);
+    setTotalPrice(price);
   };
 
   const handleOpenPayForm = () => {
@@ -122,6 +124,7 @@ const ProductsList = ({ products }) => {
           <PayForm
             onOpenOrderId={handleOpenOrderId}
             onBackToDelivery={handleGoBackToDelivery}
+            totalPrice={totalPrice}
           />
         </aside>
       )}
