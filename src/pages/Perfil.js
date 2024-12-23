@@ -5,6 +5,7 @@ import sushi from "../assets/images/sushi.png";
 import shrimp from "../assets/images/camarao.png";
 import pizza from "../assets/images/pizza.png";
 import burger from "../assets/images/burger.jpg";
+import { restaurants } from "./Home";
 
 const products = [
   new Product(
@@ -51,6 +52,8 @@ const products = [
   ),
 ];
 
-const Perfil = () => <ProductsList products={products} />;
+const Perfil = () => (
+  <ProductsList products={products} restaurants={restaurants} />
+);
 
 export default Perfil;

@@ -1,5 +1,5 @@
-import Restaurants from "../components/RestaurantsList";
 import Restaurant from "../models/Restaurants";
+import RestaurantsList from "../components/RestaurantsList";
 
 import sushi from "../assets/images/sushi.png";
 import shrimp from "../assets/images/camarao.png";
@@ -57,6 +57,8 @@ export const restaurants = [
   ),
 ];
 
-const Home = () => <Restaurants restaurants={restaurants} />;
-
+const Home = () => {
+  console.log("Inside Home component, restaurants:", restaurants);
+  return <RestaurantsList restaurants={restaurants} />;
+};
 export default Home;

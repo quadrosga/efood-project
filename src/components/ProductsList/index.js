@@ -1,13 +1,15 @@
 import { useState } from "react";
 import Card from "../Card";
-import { List } from "./styles";
+import { Banner, BannerP, BannerTitle, List } from "./styles";
 import PopUp from "../PopUp";
 import Cart from "../Cart";
 import DeliveryForm from "../DeliveryForm";
 import PayForm from "../PayForm";
 import OrderId from "../OderId";
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, restaurants }) => {
+  console.log(restaurants);
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
@@ -47,7 +49,6 @@ const ProductsList = ({ products }) => {
   };
 
   const handleOpenPayForm = () => {
-    console.log("Opening PayForm...");
     setIsDeliveryFormVisible(false);
     setIsPayFormVisible(true);
   };
@@ -72,72 +73,80 @@ const ProductsList = ({ products }) => {
   };
 
   return (
-    <div className="container">
-      <List>
-        {products.map((product) => (
-          <li key={product.id}>
-            <Card
-              variant="products"
-              image={product.image}
-              nome={product.name}
-              description={product.description}
-              buttonText="Adicionar ao carrinho"
-              onButtonClick={() => handleOpenPopUp(product)}
+    <>
+      {restaurants.map((restaurant) => (
+        <Banner style={{ backgroundImage: `url(${restaurant.image})` }}>
+          <BannerP>{restaurant.infos[0]}</BannerP>
+          <BannerTitle>{restaurant.name}</BannerTitle>
+        </Banner>
+      ))}
+      <div className="container">
+        <List>
+          {products.map((product) => (
+            <li key={product.id}>
+              <Card
+                variant="products"
+                image={product.image}
+                nome={product.name}
+                description={product.description}
+                buttonText="Adicionar ao carrinho"
+                onButtonClick={() => handleOpenPopUp(product)}
+              />
+            </li>
+          ))}
+        </List>
+
+        {selectedProduct && (
+          <div className="popup-overlay">
+            <PopUp
+              product={selectedProduct}
+              onClose={handleClosePopUp}
+              onAddToCart={handleAddToCart}
             />
-          </li>
-        ))}
-      </List>
+          </div>
+        )}
 
-      {selectedProduct && (
-        <div className="popup-overlay">
-          <PopUp
-            product={selectedProduct}
-            onClose={handleClosePopUp}
-            onAddToCart={handleAddToCart}
-          />
-        </div>
-      )}
+        {isCartVisible && (
+          <aside className="cart-aside">
+            <Cart
+              products={cartItems}
+              onClose={handleCloseCart}
+              onRemove={handleRemoveFromCart}
+              onOpenDelivery={handleOpenDeliveryForm}
+              onOpenPay={handleOpenPayForm}
+            />
+          </aside>
+        )}
 
-      {isCartVisible && (
-        <aside className="cart-aside">
-          <Cart
-            products={cartItems}
-            onClose={handleCloseCart}
-            onRemove={handleRemoveFromCart}
-            onOpenDelivery={handleOpenDeliveryForm}
-            onOpenPay={handleOpenPayForm}
-          />
-        </aside>
-      )}
+        {isDeliveryFormVisible && (
+          <aside className="delivery-form">
+            <DeliveryForm
+              onOpenPay={handleOpenPayForm}
+              onBackToCart={handleBackToCart}
+            />
+          </aside>
+        )}
 
-      {isDeliveryFormVisible && (
-        <aside className="delivery-form">
-          <DeliveryForm
-            onOpenPay={handleOpenPayForm}
-            onBackToCart={handleBackToCart}
-          />
-        </aside>
-      )}
+        {isPayFormVisible && (
+          <aside className="pay-form">
+            <PayForm
+              onOpenOrderId={handleOpenOrderId}
+              onBackToDelivery={handleGoBackToDelivery}
+              totalPrice={totalPrice}
+            />
+          </aside>
+        )}
 
-      {isPayFormVisible && (
-        <aside className="pay-form">
-          <PayForm
-            onOpenOrderId={handleOpenOrderId}
-            onBackToDelivery={handleGoBackToDelivery}
-            totalPrice={totalPrice}
-          />
-        </aside>
-      )}
-
-      {isOrderIdVisible && (
-        <aside className="order-id">
-          <OrderId
-            onOpenOrderId={handleOpenOrderId}
-            onCloseOrderId={handleCloseOrderId}
-          />
-        </aside>
-      )}
-    </div>
+        {isOrderIdVisible && (
+          <aside className="order-id">
+            <OrderId
+              onOpenOrderId={handleOpenOrderId}
+              onCloseOrderId={handleCloseOrderId}
+            />
+          </aside>
+        )}
+      </div>
+    </>
   );
 };
 
