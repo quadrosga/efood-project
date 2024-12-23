@@ -75,3 +75,13 @@ export const NestedDivOne = styled.div`
 export const NestedDivTwo = styled.div`
   display: block;
 `;
+
+export const ErrorMessage = styled.span`
+  color: ${colors.offWhite};
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  margin-bottom: 8px;
+  font-style: italic;
+  font-weight: normal;
+`;
