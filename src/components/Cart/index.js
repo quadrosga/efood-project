@@ -30,7 +30,7 @@ const Cart = ({ products, onClose, onRemove, onOpenDelivery }) => {
           <p>Valor total</p>
           <span>R$ {totalPrice.toFixed(2)}</span>
         </Price>
-        <ButtonLink onClick={onOpenDelivery} variant="cart">
+        <ButtonLink onClick={() => onOpenDelivery(totalPrice)} variant="cart">
           Continuar com a entrega
         </ButtonLink>
       </CartContent>
